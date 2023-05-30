@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "payroll-manager"
+version = "0.0.1"
+description = "Basic employee payroll manager FastAPI project"
+authors = ["Roy Christian Tia <roycetia@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9.0"
+dnspython = "^1.0.0"
+fastapi = "^0.65.1"
+uvicorn = "^0.13.4"
+pytest-asyncio = "^0.15.1"
+isort = "^5.8.0"
+sqlalchemy = "^2.0.15"
+python-dotenv = "^0.21.1"
+psycopg2 = "^2.9.6"
+mock-alchemy = "^0.2.6"
+requests = "^2.31.0"
+pytest-postgresql = "^5.0.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.9.2"
+black = "^21.5b1"
+freezegun = "^1.2.2"
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+line_length = 79
