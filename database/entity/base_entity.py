@@ -4,10 +4,14 @@ from sqlalchemy.orm import sessionmaker
 
 import settings
 
-engine = create_engine(settings.DB_URL)
+Base = declarative_base()
+
+engine = None
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-Base = declarative_base()
+if not settings.TEST_MODE:
+    engine = create_engine(settings.DB_URL)
+    SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 def setup_db_conn():

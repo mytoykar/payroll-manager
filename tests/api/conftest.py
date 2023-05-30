@@ -19,11 +19,10 @@ def db_session(db):
     user = db.user
     password = db.password
     dbname = db.dbname
-
+    conn_url = (
+        f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{dbname}"
+    )
     with DatabaseJanitor(user, host, port, dbname, db.version, password):
-        conn_url = (
-            f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{dbname}"
-        )
         engine = create_engine(conn_url)
         with engine.connect() as connection:
             Base.metadata.create_all(connection)
