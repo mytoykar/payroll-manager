@@ -1,5 +1,3 @@
-import os
-
 import pytest
 from pytest_postgresql import factories
 from pytest_postgresql.janitor import DatabaseJanitor
@@ -24,7 +22,6 @@ def db_session(db):
     conn_url = (
         f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{dbname}"
     )
-    os.environ["DB_URL"] = conn_url
     with DatabaseJanitor(user, host, port, dbname, db.version, password):
         engine = create_engine(conn_url)
         with engine.connect() as connection:
