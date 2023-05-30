@@ -17,6 +17,7 @@ psycopg2 = "^2.9.6"
 mock-alchemy = "^0.2.6"
 requests = "^2.31.0"
 pytest-postgresql = "^5.0.0"
+pytest-cov = "^4.1.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.9.2"
